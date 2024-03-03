@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEGO Navigation Bar</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+
+
+  <style>
+    body {
+      background-image: url('Legobg.jpg');
+      background-size: cover; /* Cover the entire background */
+      font-family: 'Quicksand', sans-serif; /* Apply Quicksand font family */
+    }
+    .navbar {
+      background-color: #fbcc00; 
+    }
+    .navbar-brand img {
+      max-height: 60px; /* Adjust the max-height to make the logo bigger */
+      margin-right: 30px;
+    }
+    .nav-link {
+      color: black !important; 
+      font-size: 16px;
+      margin-right: 45px; /* Add spacing between navigation links */
+    }
+    .navbar-light .navbar-toggler-icon {
+      background-image: url('Legobg.jpg');
+    }
+    /* Custom class for the shopping bag with count */
+    .shopping-bag-with-count {
+      display: flex; /* Use flexbox */
+      align-items: center; /* Align items vertically */
+      position: relative;
+    }
+    .shopping-bag-count {
+      font-size: small; /* Make the count 3 times smaller */
+      font-weight: 600; /* Apply Quicksand SemiBold 600 */
+      margin-left: 4px; /* Adjust spacing between the icon and the count */
+      margin-top:10px;
+    }
+
+    ion-icon {
+      font-size: 25px; /* Adjust the size of ion-icons */
+      display: flex; /* Use flexbox */
+      align-items: center; /* Align items vertically */
+      position: relative;
+    }
+
+    .Likes {
+      margin-top: 10px;
+    }
+
+    .searchBtn {
+      font-size: 30px; /* Adjust the size of ion-icons */
+      width: 30px;
+      height: 30px;
+      display: flex; /* Use flexbox */
+      align-items: center; /* Align items vertically */
+      position: relative;
+      margin-top: 5px;
+      margin-left:5px;
+    }
+    .circle-background {
+      background-color: white;
+      border-radius: 50%;
+      width: 55px; /* Adjust padding as needed */
+      height:55px;
+    }
+
+
+    /* Adjust the size of bootstrap-icons */
+    .bi {
+      font-size: 22px; /* Adjust the size of bootstrap-icons */
+      display: flex; /* Use flexbox */
+      align-items: center; /* Align items vertically */
+      position: relative;
+      margin-top: 10px;
+     }
+
+    /* Custom class for the search input */
+    .search-container {
+      position: relative;
+    }
+    .searchbox {
+      display: none; /* Hide the search box initially */
+      position: absolute;
+      top: 0; /* Align with the top of the search container */
+      width: 300px; /* Adjust the width as needed */
+      background: white;
+      padding: 0 30px;
+      transition: 0.5s ease-in-out;
+      margin-left:160px;
+      margin-right: 140px;
+    }
+    .searchbox.active {
+      display: block; /* Show the search box when active */
+      right: 0; /* Position at the left side of the search container when active */
+    }
+    .searchbox input {
+      width: 100%;
+      border: none;
+      outline: none;
+      height: 50px;
+      color: black;
+      font-size: 1.25em;
+      bg: #fff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#">
+    <img class="LegoLogo" src="LegoLogo.png">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">SHOP <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">DISCOVER</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">HELP</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item search-container">
+        <a class="nav-link circle-background" href="#" onclick="event.preventDefault(); toggleSearchBox()">
+          <ion-icon name="search" class="searchBtn"></ion-icon>
+        </a>
+        <div class="searchbox" id="searchBox">
+          <input type="text" placeholder=" Search here . . .">
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <ion-icon name="heart-outline" class="Likes"></ion-icon>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link shopping-bag-with-count" href="#">
+          <i class="bi bi-bag"></i>
+          <span class="shopping-bag-count">(0)</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  function toggleSearchBox() {
+    let searchBox = document.querySelector('.searchbox');
+    searchBox.classList.toggle('active');
+  }
+</script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
